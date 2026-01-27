@@ -1,26 +1,144 @@
+<!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi API con MongoDB</title>
-    </head>
-<body>
+    <meta name="description" content="Sistema de gestión de tareas técnicas para equipos de desarrollo">
+    <meta name="author" content="DevTask Tracker">
+    <title>DevTask Tracker | Gestor de Tareas Técnicas</title>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
     <header>
-        <h1>Gestor de Tareas</h1>
+        <div class="container">
+            <h1>⚡ DevTask Tracker</h1>
+            <p>Sistema de gestión de tareas técnicas para equipos de desarrollo</p>
+        </div>
     </header>
 
-    <main>
-        <section id="contenedor-tareas">
-            <p>Cargando datos...</p>
-        </section>
-    </main>
+    <div class="container">
+        <!-- Dashboard de estadísticas -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <h3>Total Tareas</h3>
+                <div class="stat-value" id="statTotal">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pendientes</h3>
+                <div class="stat-value" id="statPendientes">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>En Progreso</h3>
+                <div class="stat-value" id="statEnProgreso">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Completadas</h3>
+                <div class="stat-value" id="statCompletadas">0</div>
+            </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Mi Proyecto Backend</p>
-    </footer>
+        <div class="main-layout">
+            <!-- Formulario de nueva tarea -->
+            <div class="form-section">
+                <h2>➕ Nueva Tarea</h2>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="titulo">Título *</label>
+                        <input type="text" id="titulo" name="titulo" required maxlength="150"
+                            placeholder="Ej: Implementar sistema de autenticación">
+                    </div>
 
-    <script src="app.js"></script>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="descripcion" maxlength="500"
+                            placeholder="Describe los detalles de la tarea..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tecnologia">Tecnología *</label>
+                            <select id="tecnologia" name="tecnologia" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="Java">Java</option>
+                                <option value="Python">Python</option>
+                                <option value="C#">C#</option>
+                                <option value="PHP">PHP</option>
+                                <option value="React">React</option>
+                                <option value="Angular">Angular</option>
+                                <option value="Vue">Vue</option>
+                                <option value="Node.js">Node.js</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prioridad">Prioridad *</label>
+                            <select id="prioridad" name="prioridad" required>
+                                <option value="baja">Baja</option>
+                                <option value="media" selected>Media</option>
+                                <option value="alta">Alta</option>
+                                <option value="critica">Crítica</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select id="estado" name="estado">
+                                <option value="pendiente">Pendiente</option>
+                                <option value="en-progreso">En Progreso</option>
+                                <option value="completada">Completada</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estimacionHoras">Estimación (horas)</label>
+                            <input type="number" id="estimacionHoras" name="estimacionHoras" min="0" max="999" value="0"
+                                step="0.5">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Crear Tarea</button>
+                </form>
+            </div>
+
+            <!-- Lista de tareas -->
+            <div class="tasks-section">
+                <h2>📋 Tareas Activas</h2>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todas">Todas</button>
+                    <button class="filter-btn" data-filter="pendiente">Pendientes</button>
+                    <button class="filter-btn" data-filter="en-progreso">En Progreso</button>
+                    <button class="filter-btn" data-filter="completada">Completadas</button>
+                </div>
+
+                <div class="tasks-container" id="tasksContainer">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Cargando tareas...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/dom.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

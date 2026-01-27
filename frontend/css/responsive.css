@@ -1,0 +1,132 @@
+/* frontend/css/responsive.css */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1200px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets pequeñas */
+@media (max-width: 968px) {
+    header h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        position: static;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Móviles */
+@media (max-width: 640px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+
+    header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    header p {
+        font-size: var(--font-size-sm);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .stat-card {
+        padding: var(--spacing-sm);
+    }
+
+    .stat-card .stat-value {
+        font-size: 2rem;
+    }
+
+    .form-section {
+        padding: var(--spacing-md);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-primary {
+        padding: var(--spacing-md);
+    }
+
+    .filters {
+        gap: var(--spacing-xs);
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem var(--spacing-sm);
+    }
+
+    .task-card {
+        padding: var(--spacing-sm);
+    }
+
+    .task-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .task-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .task-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-small {
+        width: 100%;
+        text-align: center;
+    }
+
+    .toast {
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+        left: var(--spacing-sm);
+        max-width: none;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 375px) {
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
+}

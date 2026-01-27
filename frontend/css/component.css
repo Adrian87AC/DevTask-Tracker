@@ -1,0 +1,254 @@
+/* frontend/css/components.css */
+
+/* Botones */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-weight: 600;
+}
+
+.btn-edit {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-delete {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjetas de estadísticas */
+.stat-card {
+    background: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card h3 {
+    font-size: var(--font-size-sm);
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-card .stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--bg-card);
+    border: 2px solid var(--dark-light);
+    border-radius: var(--radius-round);
+    color: var(--white);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-size: var(--font-size-sm);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+/* Tarjetas de tareas */
+.task-card {
+    background: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary);
+    transition: all var(--transition-normal);
+    animation: slideIn var(--transition-normal) ease;
+}
+
+.task-card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.task-card.prioridad-baja {
+    border-left-color: var(--success);
+}
+
+.task-card.prioridad-media {
+    border-left-color: var(--warning);
+}
+
+.task-card.prioridad-alta {
+    border-left-color: #ff6b6b;
+}
+
+.task-card.prioridad-critica {
+    border-left-color: var(--danger);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.task-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--spacing-xs);
+}
+
+.task-badges {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Badges */
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-tech {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+}
+
+.badge-estado {
+    background: rgba(100, 116, 139, 0.2);
+    color: var(--gray-light);
+}
+
+.badge-estado.pendiente {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+.badge-estado.en-progreso {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+}
+
+.badge-estado.completada {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.badge-prioridad {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.task-description {
+    color: var(--gray);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--dark-light);
+}
+
+.task-date {
+    font-size: var(--font-size-sm);
+    color: var(--gray);
+}
+
+.task-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: var(--success);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideInRight var(--transition-normal) ease;
+    z-index: var(--z-toast);
+    max-width: 400px;
+}
+
+.toast.error {
+    background: var(--danger);
+}
+
+.toast.warning {
+    background: var(--warning);
+}
+
+.toast.info {
+    background: var(--primary);
+}
