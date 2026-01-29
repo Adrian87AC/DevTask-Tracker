@@ -18,7 +18,7 @@ const DOM = {
         } catch (error) {
             console.error('Error:', error);
             Components.showToast('Error de conexión con el servidor', 'error');
-            this.renderEmptyState('❌ Error de conexión');
+            this.renderEmptyState('Error de conexión');
         } finally {
             STATE.isLoading = false;
         }
@@ -99,7 +99,7 @@ const DOM = {
             const response = await API.createTask(taskData);
 
             if (response.success) {
-                Components.showToast('✅ Tarea creada exitosamente');
+                Components.showToast('Tarea creada exitosamente');
                 e.target.reset();
                 await this.loadTasks();
                 await this.loadStats();

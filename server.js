@@ -1,6 +1,6 @@
-require('dotenv').config(); // Carga las variables del archivo .env
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config(); // Carga las variables del archivo .env
 
 const app = express();
 
@@ -10,8 +10,12 @@ app.use(express.json());
 // --- 1. CONEXIÓN A MONGODB [RA3.c] ---
 // Usamos la variable de entorno para no mostrar la contraseña aquí
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Conectado a MongoDB Atlas'))
-  .catch((err) => console.error('Error de conexión:', err));
+  .then(() => {
+    console.log('Conectado a MongoDB Atlas')
+  })
+  .catch((err) => {
+    console.error('Error de conexión:', err)
+  });
 
 // --- 2. DEFINIR EL ESQUEMA (MODELO) [RA3.a] ---
 // Esto define qué datos aceptamos. Uso los campos de tu imagen anterior.
