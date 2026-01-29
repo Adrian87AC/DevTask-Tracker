@@ -8,11 +8,6 @@ const taskSchema = new mongoose.Schema({
         trim: true,
         maxlength: [150, 'El título no puede exceder 150 caracteres']
     },
-    descripcion: {
-        type: String,
-        default: '',
-        maxlength: [500, 'La descripción no puede exceder 500 caracteres']
-    },
     tecnologia: {
         type: String,
         enum: {
@@ -20,14 +15,6 @@ const taskSchema = new mongoose.Schema({
             message: '{VALUE} no es una tecnología válida'
         },
         required: [true, 'La tecnología es obligatoria']
-    },
-    prioridad: {
-        type: String,
-        enum: {
-            values: ['baja', 'media', 'alta', 'critica'],
-            message: '{VALUE} no es una prioridad válida'
-        },
-        default: 'media'
     },
     estado: {
         type: String,
@@ -37,23 +24,10 @@ const taskSchema = new mongoose.Schema({
         },
         default: 'pendiente'
     },
-    estimacionHoras: {
-        type: Number,
-        min: [0, 'La estimación no puede ser negativa'],
-        max: [999, 'La estimación no puede exceder 999 horas'],
-        default: 0
-    },
     fecha: {
         type: Date,
         default: Date.now
-    },
-    fechaCompletada: {
-        type: Date,
-        default: null
     }
-}, {
-    timestamps: true, // Añade createdAt y updatedAt automáticamente
-    versionKey: false
 });
 
 // Middleware pre-save: actualizar fechaCompletada cuando se marca como completada
