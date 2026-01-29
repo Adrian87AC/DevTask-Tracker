@@ -5,7 +5,7 @@ const CONFIG = {
     API_URL: 'http://localhost:3000/api',
     ENDPOINTS: {
         TASKS: '/tasks',
-        STATS: '/tasks/stats',
+        STATS: '/stats',
         BACKLOG: '/backlog',
         SEARCH: '/tasks/search'
     },

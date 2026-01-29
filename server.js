@@ -48,6 +48,7 @@ app.get('/api/tasks', async (req, res) => {
     const tareas = await Tarea.find().sort({ fecha: -1 });
     res.json({ success: true, data: tareas });
   } catch (error) {
+    console.error('Error al obtener tareas:', error);
     res.status(500).json({ success: false, mensaje: 'Error al obtener tareas' });
   }
 });
@@ -59,6 +60,7 @@ app.post('/api/tasks', async (req, res) => {
     const tareaGuardada = await nuevaTarea.save();
     res.status(201).json({ success: true, data: tareaGuardada });
   } catch (error) {
+    console.error('Error al guardar tarea:', error);
     res.status(400).json({ success: false, mensaje: 'Error al guardar', error });
   }
 });
@@ -70,6 +72,7 @@ app.delete('/api/tasks/:id', async (req, res) => {
     await Tarea.findByIdAndDelete(id);
     res.json({ success: true, mensaje: 'Tarea eliminada correctamente' });
   } catch (error) {
+    console.error('Error al eliminar tarea:', error);
     res.status(500).json({ success: false, mensaje: 'Error al eliminar' });
   }
 });
@@ -98,6 +101,7 @@ app.get('/api/stats', async (req, res) => {
       stats: { total, pendientes, enProgreso, completadas }
     });
   } catch (error) {
+    console.error('Error al obtener estadísticas:', error);
     res.status(500).json({ success: false, mensaje: 'Error al obtener estadísticas' });
   }
 });
